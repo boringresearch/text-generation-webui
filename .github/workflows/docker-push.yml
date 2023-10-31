@@ -18,6 +18,10 @@ jobs:
 
     - name: Run Custom Commands
       run: |
+        sudo rm -rf /usr/share/dotnet
+        sudo rm -rf /opt/ghc
+        sudo rm -rf "/usr/local/share/boost"
+        sudo rm -rf "$AGENT_TOOLSDIRECTORY"
         ln -s docker/{Dockerfile,docker-compose.yml,.dockerignore} .
         cp docker/.env.example .env
         # echo "TORCH_CUDA_ARCH_LIST=Your_GPU_Model" >> .env # Replace 'Your_GPU_Model' with your specific GPU model
